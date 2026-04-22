@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { Link } from "wouter";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp = {
@@ -125,6 +127,10 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  void useAuth(); // auth state available if needed
+
   const [activeAiOption, setActiveAiOption] = useState(0);
 
   const aiOptions = [
@@ -212,21 +218,23 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.7 }}
               className="flex flex-wrap gap-4"
             >
-              <a
-                href="#contact"
-                className="btn-gold px-8 py-4 rounded text-base inline-flex items-center gap-2"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Schedule A Free Consultation
-                <ArrowRight size={18} />
-              </a>
-              <a
-                href="#services"
-                className="btn-outline-white px-8 py-4 rounded text-base inline-flex items-center gap-2"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Our Services
-              </a>
+              <Link href="/schedule">
+                <span
+                  className="btn-gold px-8 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  Schedule A Free Consultation
+                  <ArrowRight size={18} />
+                </span>
+              </Link>
+              <Link href="/services">
+                <span
+                  className="btn-outline-white px-8 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  Our Services
+                </span>
+              </Link>
             </motion.div>
 
             {/* Trust Badges */}
@@ -555,15 +563,17 @@ export default function Home() {
                 </motion.div>
               </motion.div>
 
-              <motion.a
-                variants={fadeUp}
-                href="#contact"
-                className="btn-gold px-8 py-4 rounded text-base inline-flex items-center gap-2"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Let's Have Coffee & Talk
-                <ArrowRight size={18} />
-              </motion.a>
+              <motion.div variants={fadeUp}>
+                <Link href="/schedule">
+                  <span
+                    className="btn-gold px-8 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
+                    Let's Have Coffee & Talk
+                    <ArrowRight size={18} />
+                  </span>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -796,147 +806,45 @@ export default function Home() {
             protect your organization from cyber threats.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#contact"
-              className="btn-gold px-10 py-4 rounded text-base inline-flex items-center gap-2"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Schedule A Free Consultation
-              <Calendar size={18} />
-            </a>
+            <Link href="/schedule">
+              <span
+                className="btn-gold px-10 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                Schedule A Free Consultation
+                <Calendar size={18} />
+              </span>
+            </Link>
           </motion.div>
         </AnimatedSection>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════════
-          CONTACT SECTION
+          CONTACT TEASER
       ═══════════════════════════════════════════════════════════════════════ */}
-      <AnimatedSection id="contact" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Left: Info */}
-            <div>
-              <motion.div variants={fadeUp} className="section-label mb-4">
-                Contact Us
-              </motion.div>
-              <motion.h2
-                variants={fadeUp}
-                className="text-4xl sm:text-5xl font-bold text-[#0B1E3D] mb-6 leading-tight"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Let's Protect Your
-                <span className="block text-[#1E6FD9]">Business Together</span>
-              </motion.h2>
-              <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-8" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                Reach out to schedule your free consultation. We speak your language — no techno-babble,
-                just clear, actionable cybersecurity guidance tailored to your organization.
-              </motion.p>
-
-              <motion.div variants={stagger} className="space-y-5">
-                <motion.div variants={fadeUp} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#0B1E3D]/5 flex items-center justify-center">
-                    <Mail size={20} className="text-[#1E6FD9]" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 mb-0.5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Email</div>
-                    <a href="mailto:info@creativecybermanagement.com" className="text-[#0B1E3D] font-medium hover:text-[#1E6FD9] transition-colors" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      info@creativecybermanagement.com
-                    </a>
-                  </div>
-                </motion.div>
-                <motion.div variants={fadeUp} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#0B1E3D]/5 flex items-center justify-center">
-                    <Calendar size={20} className="text-[#1E6FD9]" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 mb-0.5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Appointments</div>
-                    <span className="text-[#0B1E3D] font-medium" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      By Appointment Only
-                    </span>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-
-            {/* Right: Contact Form */}
-            <motion.div variants={fadeUp}>
-              <div className="bg-[#F8F9FC] rounded-2xl p-8 border border-gray-100">
-                <h3
-                  className="text-2xl font-bold text-[#0B1E3D] mb-6"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Schedule Your Free Consultation
-                </h3>
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0B1E3D] text-sm focus:outline-none focus:ring-2 focus:ring-[#1E6FD9]/30 focus:border-[#1E6FD9] transition-all"
-                        placeholder="John"
-                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0B1E3D] text-sm focus:outline-none focus:ring-2 focus:ring-[#1E6FD9]/30 focus:border-[#1E6FD9] transition-all"
-                        placeholder="Smith"
-                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0B1E3D] text-sm focus:outline-none focus:ring-2 focus:ring-[#1E6FD9]/30 focus:border-[#1E6FD9] transition-all"
-                      placeholder="john@company.com"
-                      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      Organization
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0B1E3D] text-sm focus:outline-none focus:ring-2 focus:ring-[#1E6FD9]/30 focus:border-[#1E6FD9] transition-all"
-                      placeholder="Your Company Name"
-                      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      How Can We Help?
-                    </label>
-                    <textarea
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0B1E3D] text-sm focus:outline-none focus:ring-2 focus:ring-[#1E6FD9]/30 focus:border-[#1E6FD9] transition-all resize-none"
-                      placeholder="Tell us about your cybersecurity needs..."
-                      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full btn-gold py-4 rounded-lg text-base font-semibold flex items-center justify-center gap-2"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    Send Message
-                    <ArrowRight size={18} />
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-          </div>
+      <AnimatedSection id="contact" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div variants={fadeUp} className="section-label mb-4">Contact Us</motion.div>
+          <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-[#0B1E3D] mb-5 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Let's Protect Your
+            <span className="block text-[#1E6FD9]">Business Together</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-500 text-lg leading-relaxed mb-8 max-w-2xl mx-auto" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            Reach out to schedule your free consultation. We speak your language — no techno-babble,
+            just clear, actionable cybersecurity guidance tailored to your organization.
+          </motion.p>
+          <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact">
+              <span className="btn-gold px-8 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Send Us a Message <Mail size={18} />
+              </span>
+            </Link>
+            <Link href="/schedule">
+              <span className="btn-outline-white px-8 py-4 rounded text-base inline-flex items-center gap-2 cursor-pointer" style={{ fontFamily: "'Space Grotesk', sans-serif", borderColor: '#0B1E3D', color: '#0B1E3D' }}>
+                Schedule Consultation <Calendar size={18} />
+              </span>
+            </Link>
+          </motion.div>
         </div>
       </AnimatedSection>
 

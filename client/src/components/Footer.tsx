@@ -1,9 +1,14 @@
-/*
- * Footer — Corporate Prestige Design
- * Deep navy dark background, gold accents, Space Grotesk font
- */
+import { Shield, Mail, MapPin, Calendar } from "lucide-react";
+import { Link } from "wouter";
 
-import { Shield, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "AI Solutions", href: "/ai-solutions" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
+  { label: "Schedule Consultation", href: "/schedule" },
+];
 
 export default function Footer() {
   return (
@@ -12,63 +17,57 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              <img
-                src="/manus-storage/ccm_logo_fac4c845.png"
-                alt="Creative Cyber Management Logo"
-                className="h-12 w-12 object-contain"
-              />
-              <div>
-                <div
-                  className="text-white font-bold text-lg leading-tight"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Creative Cyber Management
+            <Link href="/">
+              <span className="flex items-center gap-3 mb-5 cursor-pointer">
+                <img
+                  src="/manus-storage/ccm_logo_fac4c845.png"
+                  alt="Creative Cyber Management Logo"
+                  className="h-12 w-12 object-contain"
+                />
+                <div>
+                  <div className="text-white font-bold text-lg leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Creative Cyber Management
+                  </div>
+                  <div className="text-[#D4A843] text-xs tracking-widest uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    LLC
+                  </div>
                 </div>
-                <div
-                  className="text-[#D4A843] text-xs tracking-widest uppercase"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  LLC
-                </div>
-              </div>
-            </div>
+              </span>
+            </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Your Trusted Partner in Information Security and Technology Management. 
+              Your Trusted Partner in Information Security and Technology Management.
               Protecting businesses through zero-trust principles and CISA best practices.
             </p>
-            <div className="mt-6 flex items-center gap-2">
-              <Shield size={16} className="text-[#D4A843]" />
-              <span className="text-white/50 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                CISA Best Practices Certified
-              </span>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <div className="flex items-center gap-2">
+                <Shield size={14} className="text-[#D4A843]" />
+                <span className="text-white/50 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>CISA Certified</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
+                  <div className="bg-[#F25022] rounded-[1px]" />
+                  <div className="bg-[#7FBA00] rounded-[1px]" />
+                  <div className="bg-[#00A4EF] rounded-[1px]" />
+                  <div className="bg-[#FFB900] rounded-[1px]" />
+                </div>
+                <span className="text-white/50 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Microsoft Partner</span>
+              </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4
-              className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
+            <h4 className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {[
-                { label: "Home", href: "#home" },
-                { label: "Services", href: "#services" },
-                { label: "AI Solutions", href: "#ai-solutions" },
-                { label: "About Us", href: "#about" },
-                { label: "Contact", href: "#contact" },
-              ].map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/60 hover:text-[#D4A843] text-sm transition-colors duration-200"
-                    style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {link.label}
-                  </a>
+                  <Link href={link.href}>
+                    <span className="text-white/60 hover:text-[#D4A843] text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                      {link.label}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,10 +75,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4
-              className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
+            <h4 className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Contact Us
             </h4>
             <ul className="space-y-4">
@@ -100,14 +96,11 @@ export default function Footer() {
                 </span>
               </li>
               <li className="mt-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 btn-gold px-4 py-2.5 rounded text-sm"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  Schedule Consultation
-                  <ExternalLink size={14} />
-                </a>
+                <Link href="/schedule">
+                  <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-bold cursor-pointer transition-all hover:brightness-110" style={{ backgroundColor: "#D4A843", color: "#0B1E3D", fontFamily: "'Space Grotesk', sans-serif" }}>
+                    <Calendar size={14} /> Schedule Consultation
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -118,12 +111,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Creative Cyber Management, LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-white/40 hover:text-white/70 text-xs transition-colors" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Privacy Policy
-            </a>
-            <a href="#" className="text-white/40 hover:text-white/70 text-xs transition-colors" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Terms of Service
-            </a>
+            <span className="text-white/40 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Privacy Policy</span>
+            <span className="text-white/40 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Terms of Service</span>
           </div>
         </div>
       </div>
