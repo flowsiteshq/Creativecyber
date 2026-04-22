@@ -143,3 +143,35 @@ export async function createContactSubmission(data: InsertContactSubmission) {
   if (!db) throw new Error("Database not available");
   await db.insert(contactSubmissions).values(data);
 }
+
+export async function getAllContactSubmissions() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
+}
+
+export async function updateAppointmentStatus(
+  id: number,
+  status: "pending" | "confirmed" | "cancelled"
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db
+    .update(appointments)
+    .set({ status })
+    .where(eq(appointments.id, id));
+}
+
+export async function getAdminStats() {
+  const db = await getDb();
+  if (!db) return { totalAppointments: 0, pendingAppointments: 0, confirmedAppointments: 0, cancelledAppointments: 0, totalContacts: 0 };
+  const allAppts = await db.select().from(appointments);
+  const allContacts = await db.select().from(contactSubmissions);
+  return {
+    totalAppointments: allAppts.length,
+    pendingAppointments: allAppts.filter(a => a.status === "pending").length,
+    confirmedAppointments: allAppts.filter(a => a.status === "confirmed").length,
+    cancelledAppointments: allAppts.filter(a => a.status === "cancelled").length,
+    totalContacts: allContacts.length,
+  };
+}

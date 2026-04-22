@@ -69,3 +69,14 @@
 - [x] Add Blog link to Navbar
 - [x] Add Blog link to Footer
 - [x] Write vitest tests for blog data (11 tests)
+
+## Admin Dashboard
+- [x] Admin auth uses Manus OAuth + role=admin (adminProcedure enforces role on all admin tRPC calls)
+- [x] AdminLayout shows inline sign-in screen for unauthenticated users and access-denied for non-admins
+- [x] Build AdminLayout with sidebar navigation
+- [x] Build /admin/dashboard — overview stats (total, pending, confirmed, cancelled appointments + total contacts)
+- [x] Build /admin/appointments — table with filter/sort, confirm/cancel actions
+- [x] Build /admin/contacts — table of contact form submissions with detail view
+- [x] Admin route guard built into AdminLayout (inline auth check, no separate /admin/login page needed)
+- [x] Wire admin routes in App.tsx
+- [x] Write vitest tests for admin procedures (10 tests — access control + validation + role)

@@ -2,7 +2,7 @@ import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, router, adminProcedure } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
 import { notifyOwner } from "./_core/notification";
 import {
@@ -11,6 +11,10 @@ import {
   saveChatMessage,
   getChatHistory,
   createContactSubmission,
+  getAllAppointments,
+  getAllContactSubmissions,
+  updateAppointmentStatus,
+  getAdminStats,
 } from "./db";
 
 const CCM_SYSTEM_PROMPT = `You are the AI assistant for Creative Cyber Management, LLC — a premier cybersecurity and technology management firm based in Atlanta, GA. You help prospective and existing clients understand our services, pricing philosophy, and how to get started.
@@ -148,6 +152,31 @@ export const appRouter = router({
         });
         return { success: true };
       }),
+  }),
+
+  // ─── Admin Procedures (protected — admin role required) ───────────────────
+  admin: router({
+    getStats: adminProcedure.query(async () => {
+      return getAdminStats();
+    }),
+
+    getAppointments: adminProcedure.query(async () => {
+      return getAllAppointments();
+    }),
+
+    updateAppointmentStatus: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        status: z.enum(["pending", "confirmed", "cancelled"]),
+      }))
+      .mutation(async ({ input }) => {
+        await updateAppointmentStatus(input.id, input.status);
+        return { success: true };
+      }),
+
+    getContacts: adminProcedure.query(async () => {
+      return getAllContactSubmissions();
+    }),
   }),
 });
 
