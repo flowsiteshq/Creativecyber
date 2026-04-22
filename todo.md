@@ -59,3 +59,13 @@
 - [x] server/auth.logout.test.ts (1 test)
 - [x] server/features.test.ts — appointments, chat, contact (7 tests)
 - [x] All 8 tests passing
+
+## Blog Feature
+- [x] Write Article 1: HIPAA Compliance Tips for Small Healthcare Practices
+- [x] Write Article 2: Zero-Trust Security — A Practical Guide for Business Owners
+- [x] Write Article 3: AI Security in 2025 — What Every Business Needs to Know
+- [x] Build Blog listing page (/blog) with article cards
+- [x] Build individual article page (/blog/:slug) with full content
+- [x] Add Blog link to Navbar
+- [x] Add Blog link to Footer
+- [x] Write vitest tests for blog data (11 tests)

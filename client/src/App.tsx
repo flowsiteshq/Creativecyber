@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
+import "./blog.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -11,6 +12,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Schedule from "./pages/Schedule";
 import ChatBot from "./components/ChatBot";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 function Router() {
   return (
@@ -21,6 +24,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/schedule" component={Schedule} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
