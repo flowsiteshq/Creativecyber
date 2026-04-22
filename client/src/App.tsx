@@ -27,7 +27,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
+        defaultTheme="light" // Corporate Prestige: white body, dark navy hero sections
         // switchable
       >
         <TooltipProvider>
