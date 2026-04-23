@@ -22,10 +22,13 @@ import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import Disclaimer from "./pages/Disclaimer";
 import CookieConsentBanner from "./components/CookieConsent";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Router() {
   return (
-    <Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
       <Route path="/ai-solutions" component={AISolutions} />
@@ -45,7 +48,8 @@ function Router() {
       <Route path="/disclaimer" component={Disclaimer} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
-    </Switch>
+      </Switch>
+    </>
   );
 }
 

@@ -98,3 +98,7 @@
 - [x] Consent state stored in localStorage; no 3rd-party analytics/marketing scripts currently installed (gating is ready for when they are added)
 - [x] Link to Cookie Policy page from banner
 - [x] Write vitest tests for consent logic (14 tests)
+
+## Scroll-to-Top Fix
+- [x] Create ScrollToTop component that fires window.scrollTo(0,0) on every route change
+- [x] Wire ScrollToTop inside Router in App.tsx
