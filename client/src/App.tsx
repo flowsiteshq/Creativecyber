@@ -21,6 +21,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import Disclaimer from "./pages/Disclaimer";
+import CookieConsentBanner from "./components/CookieConsent";
 
 function Router() {
   return (
@@ -48,11 +49,16 @@ function Router() {
   );
 }
 
-function ConditionalChatBot() {
+function ConditionalWidgets() {
   const [location] = useLocation();
-  // Hide chatbot on admin pages
+  // Hide chatbot and cookie banner on admin pages
   if (location.startsWith("/admin")) return null;
-  return <ChatBot />;
+  return (
+    <>
+      <ChatBot />
+      <CookieConsentBanner />
+    </>
+  );
 }
 
 function App() {
@@ -62,7 +68,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
-          <ConditionalChatBot />
+          <ConditionalWidgets />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

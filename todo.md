@@ -89,3 +89,12 @@
 - [x] Shared LegalPage layout component
 - [x] Footer links updated for all legal pages (Legal column + bottom bar)
 - [x] Routes wired in App.tsx
+
+## Cookie Consent Banner (GDPR/CCPA)
+- [x] CookieConsent component — bottom banner with Accept All / Manage Preferences / Reject Non-Essential
+- [x] Preferences modal — granular toggles for Necessary, Analytics, Functionality, Marketing cookies
+- [x] useCookieConsent hook — localStorage persistence, consent state management
+- [x] Integrate banner into App.tsx (hidden on admin pages)
+- [x] Consent state stored in localStorage; no 3rd-party analytics/marketing scripts currently installed (gating is ready for when they are added)
+- [x] Link to Cookie Policy page from banner
+- [x] Write vitest tests for consent logic (14 tests)
