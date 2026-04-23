@@ -17,6 +17,10 @@ import BlogPost from "./pages/BlogPost";
 import AdminOverview from "./pages/admin/AdminOverview";
 import AdminAppointments from "./pages/admin/AdminAppointments";
 import AdminContacts from "./pages/admin/AdminContacts";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Cookies from "./pages/Cookies";
+import Disclaimer from "./pages/Disclaimer";
 
 function Router() {
   return (
@@ -33,6 +37,11 @@ function Router() {
       <Route path="/admin" component={AdminOverview} />
       <Route path="/admin/appointments" component={AdminAppointments} />
       <Route path="/admin/contacts" component={AdminContacts} />
+      {/* Legal Routes */}
+      <Route path="/terms" component={Terms} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/cookies" component={Cookies} />
+      <Route path="/disclaimer" component={Disclaimer} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

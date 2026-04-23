@@ -80,3 +80,12 @@
 - [x] Admin route guard built into AdminLayout (inline auth check, no separate /admin/login page needed)
 - [x] Wire admin routes in App.tsx
 - [x] Write vitest tests for admin procedures (10 tests — access control + validation + role)
+
+## Legal Pages
+- [x] Terms & Conditions page (/terms)
+- [x] Privacy Policy page (/privacy)
+- [x] Cookie Policy page (/cookies)
+- [x] Disclaimer page (/disclaimer)
+- [x] Shared LegalPage layout component
+- [x] Footer links updated for all legal pages (Legal column + bottom bar)
+- [x] Routes wired in App.tsx

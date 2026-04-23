@@ -11,11 +11,18 @@ const quickLinks = [
   { label: "Schedule Consultation", href: "/schedule" },
 ];
 
+const legalLinks = [
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Cookie Policy", href: "/cookies" },
+  { label: "Disclaimer", href: "/disclaimer" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#060F1E] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/">
@@ -74,6 +81,24 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
+          <div>
+            <h4 className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Legal
+            </h4>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href}>
+                    <span className="text-white/60 hover:text-[#D4A843] text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                      {link.label}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h4 className="text-[#D4A843] text-xs font-semibold tracking-widest uppercase mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -107,13 +132,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             © {new Date().getFullYear()} Creative Cyber Management, LLC. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <span className="text-white/40 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Privacy Policy</span>
-            <span className="text-white/40 text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Terms of Service</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <span className="text-white/40 hover:text-white/70 text-xs transition-colors cursor-pointer" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  {link.label}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
