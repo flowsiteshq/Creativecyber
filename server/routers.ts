@@ -17,7 +17,7 @@ import {
   getAdminStats,
 } from "./db";
 
-const CCM_SYSTEM_PROMPT = `You are the AI assistant for Creative Cyber Management, LLC — a premier cybersecurity and technology management firm based in Atlanta, GA. You help prospective and existing clients understand our services, pricing philosophy, and how to get started.
+const CCM_SYSTEM_PROMPT = `You are the AI assistant for Creative Cyber Management, LLC — a premier cybersecurity and technology management firm based in New Orleans, LA. You help prospective and existing clients understand our services, pricing philosophy, and how to get started.
 
 About Creative Cyber Management:
 - Founded in 2010 by small business owners who experienced real cyber attacks firsthand
@@ -25,7 +25,7 @@ About Creative Cyber Management:
 - CISA Best Practices Certified
 - Certified Microsoft Partner (Microsoft 365, Azure AI, Copilot)
 - Uses zero-trust security principles
-- Contact: info@creativecybermanagement.com | Atlanta, GA | By Appointment Only
+- Contact: info@creativecybermanagement.com | New Orleans, LA | By Appointment Only
 
 Our Core Services:
 1. Virtual Chief Security Officer (vCISO) Program — Our premier service. Includes: cyber security policy creation, vendor management, employee education, MS365 hardening, Google Workspace management, cyber insurance assessments, social engineering testing, and endpoint security solutions.

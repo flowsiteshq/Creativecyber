@@ -118,7 +118,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-[#1E6FD9] mt-0.5 shrink-0" />
                 <span className="text-white/60 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Atlanta, GA
+                  New Orleans, LA
                 </span>
               </li>
               <li className="mt-4">

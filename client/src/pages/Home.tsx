@@ -673,7 +673,7 @@ export default function Home() {
                     Samuel B. Milton, M.D.
                   </div>
                   <div className="text-gray-400 text-sm" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                    Atlanta, GA
+                    New Orleans, LA
                   </div>
                 </div>
               </div>

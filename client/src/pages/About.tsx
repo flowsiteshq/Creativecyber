@@ -30,7 +30,7 @@ const values = [
 
 const milestones = [
   { year: "1999", event: "Founder Burton Maben experiences a real cyber attack firsthand — the event that would shape everything." },
-  { year: "2010", event: "Creative Cyber Management, LLC is founded in Atlanta, GA, bringing real-world cyber experience to small businesses." },
+  { year: "2010", event: "Creative Cyber Management, LLC is founded in New Orleans, LA, bringing real-world cyber experience to small businesses." },
   { year: "2015", event: "Achieved CISA Best Practices Certification, formalizing our commitment to the highest security standards." },
   { year: "2018", event: "Became a certified Microsoft Partner, expanding our capabilities to include M365 hardening and Azure cloud security." },
   { year: "2022", event: "Launched our AI Solutions practice, helping clients harness Microsoft Azure AI and Copilot securely." },

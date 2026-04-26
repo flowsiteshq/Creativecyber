@@ -102,3 +102,6 @@
 ## Scroll-to-Top Fix
 - [x] Create ScrollToTop component that fires window.scrollTo(0,0) on every route change
 - [x] Wire ScrollToTop inside Router in App.tsx
+
+## Location Update
+- [x] Replace all "Atlanta" references with "New Orleans, LA" across all pages and data files (6 locations updated)

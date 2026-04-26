@@ -87,7 +87,7 @@ export default function Contact() {
               <motion.div variants={stagger} className="space-y-6 mb-10">
                 {[
                   { icon: Mail, label: "Email", value: "info@creativecybermanagement.com", href: "mailto:info@creativecybermanagement.com" },
-                  { icon: MapPin, label: "Location", value: "Atlanta, GA", href: null },
+                  { icon: MapPin, label: "Location", value: "New Orleans, LA", href: null },
                   { icon: Calendar, label: "Appointments", value: "By Appointment Only", href: null },
                 ].map(item => (
                   <motion.div key={item.label} variants={fadeUp} className="flex items-center gap-4">
