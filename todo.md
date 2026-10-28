@@ -115,12 +115,12 @@
 
 ## Railway Deployment Plan
 - [x] Identify the active Railway-hosted service through production response headers
-- [ ] Confirm the linked Railway pipeline builds and serves the fixed GitHub `main` commit
-- [ ] Push the current GitHub `main` branch to trigger the linked Railway deployment
-- [ ] Verify the deployed service is reachable and record the production URL
+- [x] Confirm the linked Railway pipeline builds and serves the fixed GitHub `main` commit
+- [x] Push the fixed release commit to GitHub `main`
+- [x] Verify the deployed service is reachable at https://www.creativecybermanagement.com/
 
 ## Production Error Remediation Plan
 - [x] Identify the client-side invalid-URL code path affecting creativecybermanagement.com
 - [x] Implement a domain-safe URL construction fix and add regression coverage
-- [ ] Validate the production build and deploy the corrected release
-- [ ] Confirm creativecybermanagement.com loads without the client-side error
+- [x] Validate the production build and deploy the corrected release
+- [x] Confirm creativecybermanagement.com loads without the client-side error
