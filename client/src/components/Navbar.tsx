@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { CCM_LOGO_SRC } from "@/lib/brandAssets";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -40,9 +41,11 @@ export default function Navbar() {
           <Link href="/">
             <span className="flex items-center gap-3 group cursor-pointer">
               <img
-                src="/manus-storage/ccm_logo_fac4c845.png"
+                src={CCM_LOGO_SRC}
                 alt="Creative Cyber Management Logo"
-                className="h-12 w-12 object-contain"
+                width={48}
+                height={48}
+                className="h-12 w-12 shrink-0 object-contain"
               />
               <div className="hidden sm:block">
                 <div className="text-white font-bold text-lg leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>

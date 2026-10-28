@@ -124,3 +124,8 @@
 - [x] Implement a domain-safe URL construction fix and add regression coverage
 - [x] Validate the production build and deploy the corrected release
 - [x] Confirm creativecybermanagement.com loads without the client-side error
+
+## Logo Rendering Remediation Plan
+- [x] Inspect the live header logo distortion across desktop and mobile breakpoints
+- [x] Replace the Railway-incompatible logo source and set stable intrinsic dimensions in the header and footer
+- [ ] Validate the corrected rendering in preview and production
