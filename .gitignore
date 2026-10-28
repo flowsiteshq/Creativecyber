@@ -1,27 +1,44 @@
 # Dependencies
 **/node_modules
+node_modules/
 .pnpm-store/
+.pnpm-store
+jspm_packages/
+web_modules/
+bower_components/
 
 # Build outputs
 dist/
+dist
 build/
+build/Release
 *.dist
+out
+.output
+.next
+.nuxt
+.vuepress/dist
+**/.vitepress/dist
+.storybook-out
 
 # Environment variables
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
 
 # IDE and editor files
 .vscode/
+.vscode-test
 .idea/
 *.swp
 *.swo
 *~
 
-# OS generated files
+# OS-generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -30,7 +47,7 @@ build/
 ehthumbs.db
 Thumbs.db
 
-# Logs
+# Logs and diagnostic reports
 logs
 *.log
 npm-debug.log*
@@ -38,73 +55,64 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Runtime data
+# Runtime data and coverage
 pids
 *.pid
 *.seed
 *.pid.lock
 *.bak
-
-# Coverage directory used by tools like istanbul
+lib-cov
 coverage/
+coverage
 *.lcov
-
-# nyc test coverage
 .nyc_output
 
-# Dependency directories
-jspm_packages/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
+# Caches and package-manager artifacts
 .npm
-
-# Optional eslint cache
 .eslintcache
-
-# Microbundle cache
+.stylelintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.cache
+.parcel-cache
 .rpt2_cache/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
+.grunt
+.fusebox/
+.turbo
+.vite/
+.astro/
+.svelte-kit/
 
-# Optional REPL history
-.node_repl_history
+# TypeScript and framework tooling
+*.tsbuildinfo
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.docusaurus
+.serverless/
+.firebase/
+.tern-port
+.lock-wscript
 
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-
-# Gatsby files
-.cache/
-
-# Storybook build outputs
-.out
-.storybook-out
-
-# Temporary folders
+# Temporary and local data
 tmp/
 temp/
-
-# Database
 *.db
 *.sqlite
 *.sqlite3
+.dynamodb/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
