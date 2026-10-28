@@ -18,7 +18,13 @@ const redirectToLoginIfUnauthorized = (error: unknown) => {
 
   if (!isUnauthorized) return;
 
-  window.location.href = getLoginUrl();
+  const loginUrl = getLoginUrl();
+  if (!loginUrl) {
+    console.error("[Auth] Sign-in is unavailable because OAuth is not configured for this deployment.");
+    return;
+  }
+
+  window.location.assign(loginUrl);
 };
 
 queryClient.getQueryCache().subscribe(event => {

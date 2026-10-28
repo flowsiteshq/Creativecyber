@@ -112,3 +112,15 @@
 - [x] Confirm the complete current website source checkpoint history (through 6bf4828) is included in the handoff push
 - [x] Commit repository handoff metadata and merge the target repository bootstrap history
 - [x] Push the verified commit to the target repository and confirm the remote branch
+
+## Railway Deployment Plan
+- [ ] Verify Railway access and identify the target project/service
+- [ ] Configure the required build, runtime, and environment settings without exposing secrets
+- [ ] Deploy the current GitHub `main` branch to Railway
+- [ ] Verify the deployed service is reachable and record the production URL
+
+## Production Error Remediation Plan
+- [x] Identify the client-side invalid-URL code path affecting creativecybermanagement.com
+- [x] Implement a domain-safe URL construction fix and add regression coverage
+- [ ] Validate the production build and deploy the corrected release
+- [ ] Confirm creativecybermanagement.com loads without the client-side error

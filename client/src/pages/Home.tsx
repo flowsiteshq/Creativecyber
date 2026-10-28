@@ -25,7 +25,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAuth } from "@/_core/hooks/useAuth";
 import { Link } from "wouter";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
@@ -127,10 +126,6 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  void useAuth(); // auth state available if needed
-
   const [activeAiOption, setActiveAiOption] = useState(0);
 
   const aiOptions = [

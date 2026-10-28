@@ -1,5 +1,5 @@
 import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
+import { startLogin } from "@/const";
 import { trpc } from "@/lib/trpc";
 import {
   BarChart3,
@@ -177,7 +177,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             This area is restricted to authorized administrators of Creative Cyber Management. Please sign in with your admin account to continue.
           </p>
           <button
-            onClick={() => { window.location.href = getLoginUrl(); }}
+            onClick={startLogin}
             className="w-full py-3.5 px-6 rounded-xl font-bold text-sm transition-all hover:brightness-110 flex items-center justify-center gap-2"
             style={{ backgroundColor: "#0B1E3D", color: "white", fontFamily: "'Space Grotesk', sans-serif" }}
           >
