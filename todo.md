@@ -114,9 +114,9 @@
 - [x] Push the verified commit to the target repository and confirm the remote branch
 
 ## Railway Deployment Plan
-- [ ] Verify Railway access and identify the target project/service
-- [ ] Configure the required build, runtime, and environment settings without exposing secrets
-- [ ] Deploy the current GitHub `main` branch to Railway
+- [x] Identify the active Railway-hosted service through production response headers
+- [ ] Confirm the linked Railway pipeline builds and serves the fixed GitHub `main` commit
+- [ ] Push the current GitHub `main` branch to trigger the linked Railway deployment
 - [ ] Verify the deployed service is reachable and record the production URL
 
 ## Production Error Remediation Plan
